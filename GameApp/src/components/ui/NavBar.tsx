@@ -6,7 +6,6 @@ export const NavBar = () => {
   return (
     <HStack>
         <Image src={logosana} alt="Logo Sana" boxSize="60px"/>
-        <text fontSize="2xl" fontWeight="bold">Sanalinker</text>
     </HStack>
   )
 }
