@@ -5,7 +5,7 @@ import logosana from "../../assets/Logosana.png";
 export const NavBar = () => {
   return (
     <HStack>
-        <Image src={logosana} alt="Logo Sana" boxSize="60px"/>
+        <Image src={logosana} alt="Logo Sana" boxSize="60px" bg="white"/>
     </HStack>
   )
 }

@@ -1,30 +1,21 @@
-import { useEffect, useState } from 'react';
-import { fetchGames } from '../../services/api-client';
-import type { Game } from '../../services/api-client';
+import useGames  from '../../hooks/useGames';
 
 const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchGames()
-      .then(setGames)
-      .catch(err => setError(err.message));
-  }, []);
+  const { games, error } = useGames();
 
   if (error) return <p>Error: {error}</p>;
 
   return (
     <>
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+    <ul>
       {games.map(game => (
-        <div key={game.id}>
+        <li key={game.id}>
           <img src={game.background_image} alt={game.name} style={{ width: '100%' }} />
           <h3>{game.name}</h3>
           <p>Rating: {game.rating}</p>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
     </>
   );
 };
