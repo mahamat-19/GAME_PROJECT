@@ -3,7 +3,9 @@ import useGenres from "../hooks/useGenres";
 import getCropedImageUrl from "../services/image-url";
 
 const GenreList = () => {
-  const { genres } = useGenres();
+  const { genres, isLoading, error } = useGenres();
+  if (isLoading) return <div>Sowsow...</div>;
+  if (error) return <div>{error}</div>;
   return (
     <div>
       {genres.map(genre => (
