@@ -1,7 +1,7 @@
 import { Box,  Image } from '@chakra-ui/react';
-import type { Game } from '../../services/api-client';
-import PlatformIconList from '../PlatformIconList';
-import getCropedImageUrl from '../../services/image-url';
+import type { Game } from '../services/api-client';
+import PlatformIconList from './PlatformIconList';
+import getCropedImageUrl from '../services/image-url';
 interface GameCardProps {
     game: Game;
 }

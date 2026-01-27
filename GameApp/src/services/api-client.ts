@@ -19,3 +19,24 @@ export const fetchGames = async (): Promise<Game[]> => {
   const data = await response.json();
   return data.results; // adjust if RAWG API structure differs
 };
+
+
+
+
+export interface Genre {
+  id: number;
+  name: string;
+}
+interface fetchGenresResponse {
+  count: number;
+  results: Genre[];
+}
+
+export const fetchGenresResponse = async (): Promise<Genre[]> => {
+  const response = await fetch('http://localhost:3000/genres');
+  if (!response.ok) {
+    throw new Error('Failed to fetch genres');
+  }
+  const data = await response.json();
+  return data.results; // adjust if RAWG API structure differs
+};

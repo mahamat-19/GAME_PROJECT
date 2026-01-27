@@ -1,6 +1,6 @@
 
 import { HStack, Image } from "@chakra-ui/react";
-import logosana from "../../assets/Logosana.png";
+import logosana from "../assets/Logosana.png";
 
 export const NavBar = () => {
   return (

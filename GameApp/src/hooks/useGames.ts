@@ -21,4 +21,5 @@ const useGames = () => {
   }, []);
 return { games, error, isLoading };
 }
+
 export default useGames;

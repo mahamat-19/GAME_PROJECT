@@ -3,7 +3,6 @@ import axios from 'axios';
 import cors from 'cors';
 
 const app = express();
-const PORT = 3000;
 const RAWG_API_KEY = '2a70e71ae2034005a8d8023f44880be0';
 
 app.use(cors());
@@ -20,6 +19,15 @@ app.get('/games', async (req: Request, res: Response) => {
   }
 });
 
+app.get('/genres', async (req: Request, res: Response) => {
+  try {
+    const response = await axios.get(`https://api.rawg.io/api/genres?key=${RAWG_API_KEY}`);
+    res.json(response.data);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch genres' });
+  }
+});
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Proxy server running at http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
