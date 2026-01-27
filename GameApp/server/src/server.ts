@@ -10,6 +10,7 @@ app.use(cors());
 app.get('/', (req: Request, res: Response) => {
   res.send('Game Proxy Server is running');
 });
+
 app.get('/games', async (req: Request, res: Response) => {
   try {
     const response = await axios.get(`https://api.rawg.io/api/games?key=${RAWG_API_KEY}`);

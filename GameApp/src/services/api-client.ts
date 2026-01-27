@@ -21,11 +21,10 @@ export const fetchGames = async (): Promise<Game[]> => {
 };
 
 
-
-
 export interface Genre {
   id: number;
   name: string;
+  image_background: string;
 }
 interface fetchGenresResponse {
   count: number;

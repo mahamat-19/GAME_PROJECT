@@ -5,7 +5,6 @@ import { BsGlobe } from 'react-icons/bs';
 import { Icon } from '@chakra-ui/react';
 import { HStack } from '@chakra-ui/react';
 import type { Platform } from '../services/api-client';
-
 interface PlatformIconListProps {
     platform: Platform[];
 }

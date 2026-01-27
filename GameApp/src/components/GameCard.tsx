@@ -7,7 +7,7 @@ interface GameCardProps {
 }
 const GameCard = ({ game }: GameCardProps) => (
     
-  <Box width="300px" borderWidth="1px" borderRadius={10} overflow="hidden">
+  <Box width="100%" borderWidth="1px" borderRadius={10} overflow="hidden">
     <Image src={getCropedImageUrl(game.background_image, 'small')} alt={game.name} />
     <Box p="4">
       <h2>{game.name}</h2>
