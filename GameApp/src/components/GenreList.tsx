@@ -1,8 +1,13 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { Button, HStack, Image, Link } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 import getCropedImageUrl from "../services/image-url";
+import type { Genre } from "../services/api-client";
 
-const GenreList = () => {
+ interface GenreListProps {
+  onSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectGenre }: GenreListProps) => {
   const { genres, isLoading, error } = useGenres();
   if (isLoading) return <div>Sowsow...</div>;
   if (error) return <div>{error}</div>;
@@ -17,7 +22,14 @@ const GenreList = () => {
               src={genre.image_background ? getCropedImageUrl(genre.image_background, 'small') : undefined}
               alt={genre.name}
             />
-            <span>{genre.name}</span>
+<Button
+  onClick={() => onSelectGenre(genre)}
+  as={Link}
+  to={`/genres/${genre.id}`}
+  variant="plain"
+>
+  {genre.name}
+</Button>
           </HStack>
         </div>
       ))}

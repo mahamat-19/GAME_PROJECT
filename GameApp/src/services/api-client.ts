@@ -11,8 +11,10 @@ export interface Platform {
   slug: string;
 }
 
-export const fetchGames = async (): Promise<Game[]> => {
-  const response = await fetch('http://localhost:3000/games');
+export const fetchGames = async (selectedGenre?: Genre | null): Promise<Game[]> => {
+  const genresQuery = selectedGenre ? `?genres=${selectedGenre.id}` : '';
+
+  const response = await fetch(`http://localhost:3000/games${genresQuery}`);
   if (!response.ok) {
     throw new Error('Failed to fetch games');
   }
@@ -31,8 +33,10 @@ interface fetchGenresResponse {
   results: Genre[];
 }
 
-export const fetchGenresResponse = async (): Promise<Genre[]> => {
-  const response = await fetch('http://localhost:3000/genres');
+export const fetchGenresResponse = async (selectedGenre?: Genre | null): Promise<Genre[]> => {
+  const genresQuery = selectedGenre ? `?genres=${selectedGenre.id}` : '';
+
+  const response = await fetch(`http://localhost:3000/genres${genresQuery}`);
   if (!response.ok) {
     throw new Error('Failed to fetch genres');
   }

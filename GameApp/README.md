@@ -1,73 +1,56 @@
-# React + TypeScript + Vite
+# 🎮 Game Explorer Full Stack Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Description
 
-Currently, two official plugins are available:
+Full-stack web application that lets users browse video games and genres using a React frontend and a Node.js/Express proxy server connected to the RAWG API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
 
-## React Compiler
+- Frontend: React + TypeScript + Vite + Chakra UI
+- Backend: Node.js + Express + TypeScript
+- API Source: RAWG Video Games Database API
+- Data Fetching: Fetch API + Axios (server-side)
+- Styling/UI: Chakra UI components
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Browse game cards with title, image, rating, and platform icons
+- View and select genres from a sidebar list
+- Filter displayed games by selected genre
+- Loading skeletons and basic error handling for API calls
+- Local proxy server endpoints for `/games` and `/genres`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📷 Screenshots
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+(Add images here)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# 1) Clone project
+git clone https://github.com/mahamat-19/GAME_PROJECT.git
+cd Game_project/GameApp
+
+# 2) Install frontend dependencies
+npm install
+
+# 3) Install backend dependencies
+cd server
+npm install
+
+# 4) Run backend (Terminal 1)
+npm run dev
+
+# 5) Run frontend (Terminal 2)
+cd ..
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Frontend runs on the Vite dev URL (usually `http://localhost:5173`) and backend runs on `http://localhost:3000`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📚 What I Learned
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Building a React + TypeScript UI with reusable components
+- Creating custom hooks for async data fetching and loading states
+- Using Express as a proxy layer for third-party APIs
+- Managing frontend/backend development workflow in one project
